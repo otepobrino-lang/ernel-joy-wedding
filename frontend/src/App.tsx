@@ -446,10 +446,11 @@ function App() {
         <p className="section-eyebrow">With love in our hearts</p>
         <h2 className="section-title">A beautiful beginning</h2>
         <p className="welcome-copy">
-          You didn't receive this invitation by chance. On this special day,
-          we truly hope you'll be with us. We can't wait to celebrate, laugh,
-          and make unforgettable memories together! Browse through our website
-          to know the details about our wedding.
+          With grateful hearts and a promise for forever,
+          we invite you to share in the blessing of our wedding day.
+          Together with our families, we would love for you to 
+          witness our vows and enjoy the celebration as we step into this chapter.
+          Having you by our side means everything!
         </p>
         <p className="script-signature">With love, Ernel &amp; Joy</p>
       </section>
