@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+  --wedding-burgundy: #31000f;
+  --wedding-deep-burgundy: #26000a;
+  --wedding-gold: #e8c67d;
+  --wedding-ivory: #fff5e9;
+  --wedding-border: rgba(232, 198, 125, 0.48);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.wedding-page {
+  width: 100%;
+  overflow-x: clip;
+  background: var(--wedding-burgundy);
+}
+
+img {
+  max-width: 100%;
+}
+
+.section-padding {
+  padding: clamp(3.5rem, 8vw, 6.25rem) clamp(1rem, 3vw, 1.5rem);
+}
+
+/* Countdown */
+.countdown-section {
+  position: relative;
+  isolation: isolate;
+  color: var(--wedding-ivory);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(106, 14, 42, 0.55), transparent 65%),
+    var(--wedding-burgundy);
+}
+
+.countdown-wrap {
+  width: min(750px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.35rem, 1.5vw, 0.9rem);
+}
+
+.countdown-unit {
+  display: flex;
+  min-width: 0;
+  min-height: clamp(82px, 12vw, 125px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0.25rem;
+  border: 1px solid var(--wedding-border);
+  background: rgba(255, 249, 239, 0.035);
+}
+
+.countdown-number {
+  color: var(--wedding-gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1;
+}
+
+.countdown-label {
+  color: rgba(255, 245, 233, 0.78);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.countdown-date {
+  margin: 1.5rem 0 0;
+  color: var(--wedding-gold);
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+/* A Glimpse of Us — separate, non-overlapping Polaroid cards */
+#our-photos {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--wedding-ivory);
+  background: var(--wedding-burgundy);
+}
+
+#our-photos .section-heading {
+  max-width: 760px;
+  margin: 0 auto clamp(2rem, 5vw, 3.25rem);
+  text-align: center;
+}
+
+#our-photos .photo-collage-grid {
+  display: grid;
+  width: min(100%, 1050px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  align-items: start;
+  margin: 0 auto;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  box-sizing: border-box;
+}
+
+#our-photos .photo-collage-item {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  padding: clamp(0.35rem, 1vw, 0.65rem);
+  padding-bottom: clamp(1.25rem, 2.5vw, 1.8rem);
+  overflow: visible;
+  border: 1px solid rgba(63, 34, 24, 0.15);
+  background: #fffaf1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.24);
+  box-sizing: border-box;
+  transform-origin: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#our-photos .photo-collage-item::before {
+  position: absolute;
+  z-index: 2;
+  top: -0.45rem;
+  left: 50%;
+  width: clamp(2.5rem, 6vw, 4rem);
+  height: 0.8rem;
+  content: "";
+  background: rgba(225, 210, 177, 0.78);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+#our-photos .photo-collage-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  object-position: center;
+  background: #3b0010;
+}
+
+#our-photos .photo-collage-item:hover {
+  z-index: 1;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.3);
+}
+
+#our-photos .photo-collage-item.polaroid-1 {
+  transform: rotate(-2deg);
+}
+
+#our-photos .photo-collage-item.polaroid-2 {
+  transform: rotate(1.5deg);
+}
+
+#our-photos .photo-collage-item.polaroid-3 {
+  transform: rotate(2deg);
+}
+
+#our-photos .photo-collage-item.polaroid-4 {
+  transform: rotate(-1.5deg);
+}
+
+#our-photos .photo-collage-item.polaroid-5 {
+  transform: rotate(1.5deg);
+}
+
+#our-photos .photo-collage-item.polaroid-6 {
+  transform: rotate(-2deg);
+}
+
+#our-photos .photo-collage-item.polaroid-1:hover,
+#our-photos .photo-collage-item.polaroid-2:hover,
+#our-photos .photo-collage-item.polaroid-3:hover,
+#our-photos .photo-collage-item.polaroid-4:hover,
+#our-photos .photo-collage-item.polaroid-5:hover,
+#our-photos .photo-collage-item.polaroid-6:hover {
+  transform: rotate(0deg) translateY(-3px);
+}
+
+/* Save the Date */
+#save-the-date.save-date-section {
+  position: relative;
+  display: block;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 1.5rem);
+  background:
+    radial-gradient(ellipse at 50% 0%, #5b071b 0%, #3a0011 48%, var(--wedding-deep-burgundy) 100%);
+}
+
+#save-the-date .save-date-frame.save-date-calendar-layout {
+  display: grid;
+  width: min(1100px, 100%);
+  max-width: 1100px;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin: 0 auto;
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+  border: 1px solid var(--wedding-border);
+  background: rgba(35, 0, 10, 0.22);
+  box-sizing: border-box;
+  animation: finale-frame 1s ease both;
+}
+
+#save-the-date .save-date-photo-panel {
+  position: relative;
+  min-width: 0;
+  padding: 0;
+}
+
+#save-the-date .save-date-couple-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+  border: clamp(0.45rem, 1.2vw, 0.85rem) solid #fff8ee;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+  box-sizing: border-box;
+}
+
+#save-the-date .save-date-photo-caption {
+  display: none;
+}
+
+#save-the-date .save-date-tape {
+  position: absolute;
+  z-index: 2;
+  width: clamp(3rem, 7vw, 5rem);
+  height: 0.8rem;
+  background: rgba(232, 218, 190, 0.9);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+#save-the-date .save-date-tape-top {
+  top: 0.8rem;
+  left: -0.55rem;
+  transform: rotate(-45deg);
+}
+
+#save-the-date .save-date-tape-bottom {
+  right: -0.55rem;
+  bottom: 0.8rem;
+  transform: rotate(-45deg);
+}
+
+#save-the-date .save-date-calendar-panel {
+  min-width: 0;
+  color: var(--wedding-ivory);
+  text-align: center;
+}
+
+#save-the-date .save-date-heading {
+  margin: 0;
+  color: var(--wedding-ivory);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 5.2vw, 4.8rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.015em;
+}
+
+#save-the-date .save-date-month {
+  margin: clamp(0.75rem, 2vw, 1.4rem) 0 clamp(1rem, 3vw, 2rem);
+  color: var(--wedding-ivory);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.1rem, 2.8vw, 2.1rem);
+  line-height: 1.2;
+}
+
+#save-the-date .save-date-calendar {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: clamp(0.15rem, 0.8vw, 0.55rem);
+}
+
+#save-the-date .save-date-weekday,
+#save-the-date .save-date-calendar-day,
+#save-the-date .save-date-calendar-empty {
+  display: flex;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  align-items: center;
+  justify-content: center;
+}
+
+#save-the-date .save-date-weekday {
+  color: rgba(255, 245, 233, 0.92);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(0.62rem, 1.5vw, 1.25rem);
+}
+
+#save-the-date .save-date-calendar-day {
+  position: relative;
+  color: rgba(255, 245, 233, 0.95);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(0.75rem, 1.8vw, 1.45rem);
+}
+
+#save-the-date .save-date-wedding-day {
+  border: 1px solid var(--wedding-ivory);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(255, 245, 233, 0.6);
+}
+
+/* RSVP */
+#rsvp.rsvp-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--wedding-deep-burgundy);
+}
+
+#rsvp .rsvp-card {
+  position: relative;
+  z-index: 1;
+  width: min(650px, 100%);
+  margin: 0 auto;
+}
+
+#rsvp .rsvp-form {
+  width: 100%;
+}
+
+#rsvp .rsvp-form input,
+#rsvp .rsvp-form select,
+#rsvp .rsvp-form textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tablet and mobile */
+@media (max-width: 800px) {
+  #our-photos .photo-collage-grid {
+    width: min(100%, 620px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.1rem, 3.5vw, 1.75rem) clamp(0.8rem, 3vw, 1.25rem);
+    padding: 0.75rem 0.35rem;
+  }
+
+  #our-photos .photo-collage-item {
+    padding: 0.35rem;
+    padding-bottom: 1.25rem;
+  }
+
+  #our-photos .photo-collage-item img {
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+  }
+
+  #save-the-date .save-date-frame.save-date-calendar-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: clamp(0.65rem, 2.5vw, 1rem);
+  }
+
+  #save-the-date .save-date-photo-panel {
+    width: min(100%, 480px);
+    margin: 0 auto;
+  }
+
+  #save-the-date .save-date-calendar-panel {
+    width: 100%;
+    padding: 0.15rem 0.2rem 0.35rem;
+  }
+
+  #save-the-date .save-date-heading {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+  }
+
+  #save-the-date .save-date-month {
+    margin: 0.65rem 0 1rem;
+    font-size: clamp(1.1rem, 4.5vw, 1.65rem);
+  }
+
+  #save-the-date .save-date-calendar {
+    gap: 0.2rem;
+  }
+
+  #save-the-date .save-date-weekday {
+    font-size: clamp(0.65rem, 2.5vw, 0.95rem);
+  }
+
+  #save-the-date .save-date-calendar-day {
+    font-size: clamp(0.75rem, 2.8vw, 1.1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .section-padding {
+    padding: 3rem 1rem;
+  }
+
+  .countdown-grid {
+    gap: 0.35rem;
+  }
+
+  .countdown-unit {
+    min-height: 78px;
+    padding: 0.55rem 0.15rem;
+  }
+
+  .countdown-label {
+    font-size: 0.5rem;
+    letter-spacing: 0.06em;
+  }
+
+  #our-photos .section-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  #our-photos .photo-collage-grid {
+    gap: 1rem 0.7rem;
+    padding: 0.65rem 0.15rem;
+  }
+
+  #our-photos .photo-collage-item {
+    padding: 0.28rem;
+    padding-bottom: 1.05rem;
+  }
+
+  #our-photos .photo-collage-item img {
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  #our-photos .photo-collage-item.polaroid-1,
+  #our-photos .photo-collage-item.polaroid-3,
+  #our-photos .photo-collage-item.polaroid-5 {
+    transform: rotate(-1deg);
+  }
+
+  #our-photos .photo-collage-item.polaroid-2,
+  #our-photos .photo-collage-item.polaroid-4,
+  #our-photos .photo-collage-item.polaroid-6 {
+    transform: rotate(1deg);
+  }
+
+  #save-the-date.save-date-section {
+    padding: 2rem 0.75rem;
+  }
+
+  #save-the-date .save-date-frame.save-date-calendar-layout {
+    gap: 1.2rem;
+    padding: 0.55rem;
+  }
+
+  #save-the-date .save-date-photo-panel {
+    width: min(100%, 360px);
+  }
+
+  #save-the-date .save-date-couple-photo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 340px) {
+  #our-photos .photo-collage-grid {
+    grid-template-columns: minmax(0, 1fr);
+    width: min(100%, 270px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  
