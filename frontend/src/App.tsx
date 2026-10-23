@@ -11,20 +11,14 @@ import {
   VolumeX,
 } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
-
 const API_BASE_URL = (
   import.meta.env.VITE_API_BASE_URL || "http://localhost:4000"
 ).replace(/\/+$/, "");
-
-
 const WEDDING_DATE = new Date("2026-12-19T14:00:00+08:00").getTime();
-
 const churchMapUrl =
   "https://www.google.com/maps/search/?api=1&query=Cathedral+Parish+of+the+Nativity+of+Our+Lady+Borongan+Eastern+Samar";
-
 const receptionMapUrl =
   "https://www.google.com/maps/search/?api=1&query=Oikos+Village+Borongan+Eastern+Samar";
-
 const entourageGroups = [
   {
     title: "Maid and Matron of Honor",
@@ -118,7 +112,6 @@ const entourageGroups = [
     members: ["Bishop", "Fr Myk", "Fr James", "Fr. Miel", "Fr Leroy"],
   },
 ];
-
 const prenupPhotos = {
   opening: "/media/prenup-01-embraced.png",
   welcome: "/media/prenup-02-romantic.png",
@@ -127,7 +120,6 @@ const prenupPhotos = {
   rsvp: "/media/prenup-05-traditional.png",
   closing: "/media/prenup-06-crimson.png",
 };
-
 type CountdownValues = {
   days: number;
   hours: number;
@@ -135,11 +127,10 @@ type CountdownValues = {
   seconds: number;
   finished: boolean;
 };
-
 function calculateCountdown(): CountdownValues {
   const difference = Math.max(0, WEDDING_DATE - Date.now());
-
   return {
+    
     days: Math.floor(difference / (1000 * 60 * 60 * 24)),
     hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
     minutes: Math.floor((difference / (1000 * 60)) % 60),
@@ -147,25 +138,20 @@ function calculateCountdown(): CountdownValues {
     finished: difference <= 0,
   };
 }
-
 function Countdown() {
   const [timeLeft, setTimeLeft] = useState(calculateCountdown);
-
   useEffect(() => {
     const timer = window.setInterval(() => {
       setTimeLeft(calculateCountdown());
     }, 1000);
-
     return () => window.clearInterval(timer);
   }, []);
-
   const units = [
     { label: "Days", value: timeLeft.days },
     { label: "Hours", value: timeLeft.hours },
     { label: "Minutes", value: timeLeft.minutes },
     { label: "Seconds", value: timeLeft.seconds },
   ];
-
   return (
     <div className="countdown-wrap">
       {timeLeft.finished ? (
@@ -187,14 +173,12 @@ function Countdown() {
           ))}
         </div>
       )}
-
       <p className="countdown-date">
         December 19, 2026 <span>·</span> 2:00 PM Philippine Time
       </p>
     </div>
   );
 }
-
 function getErrorMessage(result: unknown): string | null {
   if (
     typeof result === "object" &&
@@ -204,7 +188,6 @@ function getErrorMessage(result: unknown): string | null {
   ) {
     return result.error;
   }
-
   if (
     typeof result === "object" &&
     result !== null &&
@@ -213,10 +196,8 @@ function getErrorMessage(result: unknown): string | null {
   ) {
     return result.message;
   }
-
   return null;
 }
-
 function SaveTheDate() {
   const year = 2026;
   const monthIndex = 11;
@@ -227,7 +208,6 @@ function SaveTheDate() {
     ...Array.from({ length: daysInMonth }, (_, index) => index + 1),
   ];
   const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
   return (
     <section className="save-date-section section-padding" id="save-the-date">
       <div className="save-date-frame save-date-calendar-layout">
@@ -268,7 +248,6 @@ function SaveTheDate() {
     </section>
   );
 }
-
 function App() {
   const [showInvitation, setShowInvitation] = useState(false);
   const [guestName, setGuestName] = useState("");
@@ -277,31 +256,24 @@ function App() {
   const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [rsvpError, setRsvpError] = useState("");
-
   useEffect(() => {
     const timer = window.setTimeout(() => setShowInvitation(true), 3600);
     return () => window.clearTimeout(timer);
   }, []);
-
   const handleExplore = () => {
     document.getElementById("welcome")?.scrollIntoView({
       behavior: "smooth",
     });
   };
-
   const handleRsvp = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     if (isSubmitting) return;
-
     if (!guestName.trim()) {
       setRsvpError("Please enter your full name.");
       return;
     }
-
     setIsSubmitting(true);
     setRsvpError("");
-
     const payload = {
       fullName: guestName.trim(),
       attendanceResponse:
@@ -310,7 +282,6 @@ function App() {
       privacyConsent: true,
       website: "",
     };
-
     try {
       const response = await fetch(`${API_BASE_URL}/api/public/rsvp`, {
         method: "POST",
@@ -319,16 +290,13 @@ function App() {
         },
         body: JSON.stringify(payload),
       });
-
       const result: unknown = await response.json().catch(() => null);
-
       if (!response.ok) {
         throw new Error(
           getErrorMessage(result) ??
             "We couldn't submit your RSVP. Please check your details and try again.",
         );
       }
-
       setRsvpSubmitted(true);
     } catch (error) {
       setRsvpError(
@@ -340,12 +308,10 @@ function App() {
       setIsSubmitting(false);
     }
   };
-
   const resetRsvp = () => {
     setRsvpSubmitted(false);
     setRsvpError("");
   };
-
   return (
     <main className="wedding-page">
       <section
@@ -364,26 +330,20 @@ function App() {
         >
           <source src="/media/red-satin.mp4" type="video/mp4" />
         </video>
-
         <div className="satin-overlay" aria-hidden="true" />
         <div className="satin-vignette" aria-hidden="true" />
-
         <div className="hero-frame" aria-hidden="true">
           <span className="frame-inner" />
         </div>
-
         <div className="hero-content">
           <p className="hero-eyebrow">Together with our families</p>
-
           <div className="monogram-stage">
             <h1 className="visually-hidden">
               Ernel and Joy — Wedding Invitation
             </h1>
-
             <div className="name name-ernel" aria-label="Ernel">
               Ernel
             </div>
-
             <div className="monogram-wrap">
               <img
                 className="monogram-image"
@@ -392,12 +352,10 @@ function App() {
                 fetchPriority="high"
               />
             </div>
-
             <div className="name name-joy" aria-label="Joy">
               Joy
             </div>
           </div>
-
           <div
             className={`hero-details ${
               showInvitation ? "details-visible" : ""
@@ -408,14 +366,12 @@ function App() {
               <Heart size={15} strokeWidth={1.3} />
               <span />
             </div>
-
             <p className="invitation-title">
               Request the pleasure of your company
             </p>
             <p className="invitation-subtitle">
               As we begin our forever together
             </p>
-
             <button
               className="explore-button"
               onClick={handleExplore}
@@ -426,19 +382,16 @@ function App() {
             </button>
           </div>
         </div>
-
         <div className="hero-footer">
           <span>Ernel &amp; Joy</span>
           <span className="footer-separator">✦</span>
           <span>Our forever begins here</span>
         </div>
-
         <div className="sound-note" aria-label="Background video is muted">
           <VolumeX size={13} strokeWidth={1.5} />
           <span>Silent film</span>
         </div>
       </section>
-
       <section className="welcome-section section-padding" id="welcome">
         <div className="section-ornament">
           <Heart size={18} />
@@ -448,13 +401,12 @@ function App() {
         <p className="welcome-copy">
           With grateful hearts and a promise for forever,
           we invite you to share in the blessing of our wedding day.
-          Together with our families, we would love for you to 
+          Together with our families, we would love for you to&#x20;
           witness our vows and enjoy the celebration as we step into this chapter.
           Having you by our side means everything!
         </p>
         <p className="script-signature">With love, Ernel &amp; Joy</p>
       </section>
-
       <section className="photo-collage-section section-padding" id="our-photos">
         <div className="section-heading">
           <p className="section-eyebrow">Little moments, forever memories</p>
@@ -478,7 +430,6 @@ function App() {
           ))}
         </div>
       </section>
-
       <section className="entourage-section section-padding" id="entourage">
         <div className="section-heading">
           <p className="section-eyebrow">Surrounded by love</p>
@@ -488,7 +439,6 @@ function App() {
             special day.
           </p>
         </div>
-
         <div className="entourage-grid">
           {entourageGroups.map((group) => (
             <article className="entourage-card" key={group.title}>
@@ -506,7 +456,6 @@ function App() {
           ))}
         </div>
       </section>
-
       <section
         className="details-section section-padding"
         id="wedding-details"
@@ -518,7 +467,6 @@ function App() {
             Two special places, one unforgettable celebration.
           </p>
         </div>
-
         <div className="venue-grid">
           <article className="venue-card">
             <div className="venue-image-wrap">
@@ -530,14 +478,12 @@ function App() {
               />
               <span className="venue-image-label">The Ceremony</span>
             </div>
-
             <div className="venue-content">
               <p className="venue-kicker">The Wedding Ceremony</p>
               <h3>Cathedral Parish of the Nativity of Our Lady</h3>
               <p className="venue-location">
                 <MapPin size={15} /> Borongan, Eastern Samar
               </p>
-
               <div className="venue-meta">
                 <span>
                   <CalendarDays size={16} /> December 19, 2026
@@ -546,7 +492,6 @@ function App() {
                   <Clock3 size={16} /> 2:00 PM
                 </span>
               </div>
-
               <div className="venue-qr">
                 <QRCodeSVG
                   value={churchMapUrl}
@@ -557,7 +502,6 @@ function App() {
                 />
                 <p>Scan to find the church</p>
               </div>
-
               <a
                 className="map-link"
                 href={churchMapUrl}
@@ -568,7 +512,6 @@ function App() {
               </a>
             </div>
           </article>
-
           <article className="venue-card">
             <div className="venue-image-wrap">
               <img
@@ -579,14 +522,12 @@ function App() {
               />
               <span className="venue-image-label">The Reception</span>
             </div>
-
             <div className="venue-content">
               <p className="venue-kicker">Dinner &amp; Celebration</p>
               <h3>Oikos Village Borongan</h3>
               <p className="venue-location">
                 <MapPin size={15} /> Borongan, Eastern Samar
               </p>
-
               <div className="venue-meta">
                 <span>
                   <CalendarDays size={16} /> December 19, 2026
@@ -595,7 +536,6 @@ function App() {
                   <Clock3 size={16} /> 5:00 PM
                 </span>
               </div>
-
               <div className="venue-qr">
                 <QRCodeSVG
                   value={receptionMapUrl}
@@ -606,7 +546,6 @@ function App() {
                 />
                 <p>Scan to find the reception</p>
               </div>
-
               <a
                 className="map-link"
                 href={receptionMapUrl}
@@ -627,12 +566,9 @@ function App() {
             We would be honored to celebrate this day with you.
           </p>
         </div>
-
         <Countdown />
       </section>
-
       <SaveTheDate />
-
       <section className="rsvp-section section-padding rsvp-final-section rsvp-animated-background" id="rsvp">
         <video
           className="satin-background"
@@ -648,12 +584,6 @@ function App() {
         <div className="satin-overlay" aria-hidden="true" />
         <div className="satin-vignette" aria-hidden="true" />
         <div className="rsvp-card">
-          <p className="section-eyebrow">Kindly respond</p>
-          <h3 className="rsvp-title">Will you celebrate with us?</h3>
-          <p className="rsvp-description">
-            Please let us know if you can join our special day.
-          </p>
-
           {rsvpSubmitted ? (
             <div className="rsvp-success" role="status">
               <CheckCircle2 size={34} strokeWidth={1.4} />
@@ -671,7 +601,13 @@ function App() {
               </button>
             </div>
           ) : (
-            <form className="rsvp-form" onSubmit={handleRsvp}>
+            <>
+              <p className="section-eyebrow">Kindly respond</p>
+              <h3 className="rsvp-title">Will you celebrate with us?</h3>
+              <p className="rsvp-description">
+                Please let us know if you can join our special day.
+              </p>
+              <form className="rsvp-form" onSubmit={handleRsvp}>
               <label htmlFor="guest-name">Your full name</label>
               <input
                 id="guest-name"
@@ -684,7 +620,6 @@ function App() {
                 onChange={(event) => setGuestName(event.target.value)}
                 placeholder="Enter your full name"
               />
-
               <label htmlFor="attendance">Will you attend?</label>
               <select
                 id="attendance"
@@ -696,7 +631,6 @@ function App() {
                 <option value="yes">Joyfully accepts</option>
                 <option value="no">Regretfully declines</option>
               </select>
-
               <label htmlFor="guest-message">
                 A message for the couple{" "}
                 <span className="rsvp-optional">(optional)</span>
@@ -710,13 +644,11 @@ function App() {
                 onChange={(event) => setMessage(event.target.value)}
                 placeholder="Share your well wishes..."
               />
-
               {rsvpError && (
                 <p className="rsvp-error" role="alert">
                   {rsvpError}
                 </p>
               )}
-
               <button
                 type="submit"
                 className="rsvp-submit"
@@ -725,17 +657,16 @@ function App() {
                 {isSubmitting ? "Submitting..." : "Submit RSVP"}
                 {!isSubmitting && <Heart size={15} />}
               </button>
-
               <p className="rsvp-demo-note">
                 Your RSVP will be sent to our wedding RSVP service.
               </p>
-            </form>
+            
+              </form>
+            </>
           )}
         </div>
       </section>
-
     </main>
   );
 }
-
 export default App;
