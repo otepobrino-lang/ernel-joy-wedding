@@ -19,79 +19,81 @@ const churchMapUrl =
   "https://www.google.com/maps/search/?api=1&query=Cathedral+Parish+of+the+Nativity+of+Our+Lady+Borongan+Eastern+Samar";
 const receptionMapUrl =
   "https://www.google.com/maps/search/?api=1&query=Oikos+Village+Borongan+Eastern+Samar";
+const accommodationMapUrl =
+  "https://maps.app.goo.gl/otayczNfT4wwWb1z7";
 const entourageGroups = [
   {
     title: "Maid and Matron of Honor",
     members: [
       "Jeric Jane Ty Quial — Maid of Honor",
-      "Adelita T. Makinano — Matron of Honor",
+      "Irah Adelita T. Makinano — Matron of Honor",
       "Gloria B. Cheng — Matron of Honor",
     ],
   },
   {
     title: "Best Man and Men of Honor",
     members: [
-      "Chofil — Best Man",
+      "Teofil Y. Rediang, CPA — Best Man",
       "Julius Makinano — Man of Honor",
       "Erich R. Cheng — Man of Honor",
     ],
   },
   {
-    title: "Bridesmaids",
+    title: "Bridesmaid/Bridesmen",
     members: [
-      "Danella Yvette Cheng",
-      "Miyben Q. Ladera",
-      "Kaye T. Ang",
-      "Kim Andrea Lee",
-      "Princess Corpuz",
-      "Nikki Jean S. Obrino",
-      "Kimberlat",
-      "Sarah Chua Co",
-      "Dra. Lanie",
-      "Dra. Jhea Allyza B. Quial",
-      "Bridesmen Kuya Ints",
-      "Bridesmen Kuya Ajay",
+    "Dra. Jhea Allyza B. Quial",
+    "Dra. Melanie C. Chicano",
+    "Sarah Chua Co",
+    "Renz Kimberly E. Camargo",
+    "Nikki Jean S. Obrino",
+    "Princess May P. Corpuz",
+    "Kim Andrea Ty Lee Tan Be",
+    "Kaye Vicenta Felize T. Ang",
+    "Miyben Antonette Q. Ladera",
+    "Danella Yvette B. Cheng",
+    "Genes R. Paciencia",
+    "Elbert Q. Rodriguez, Jr."
     ],
   },
   {
     title: "Groomsmen",
     members: [
-      "Dean Earnest Cheng",
-      "Derrick Quial",
-      "Jared Matthew Makinano",
-      "Sebastian Cheng",
-      "Dave Erwin Cheng",
-      "Atty Michael Noel D. Obrino",
-      "Joseph",
+      "James Vergel L. Biliran",
+      "Anthony B. Cepeda",
       "Conrad Q. Tabanao",
-      "Anthony",
-      "James Biliran",
+      "Joseph Mikhail M. Erot",
+      "Atty. Michael Noel D. Obrino, CPA",
+      "Dave Erwin B. Cheng",
+      "Sebastian Cheng",
+      "Jared Matthew T. Makinano",
+      "Derrick C. Quial",
+      "Dean Earnest B. Cheng"
     ],
   },
   {
     title: "Principal Sponsors",
     members: [
-      "Leo Quial & Mary Grace Quial",
-      "Minda Nerissa Q. Ladera & Ruben Ladera",
-      "Zenaida Quial & Jessie Quial",
-      "Crisanto Lim & Marlyn Lim",
-      "Romeo Quial & Eva Quial",
-      "Gilberto Quial & Teresa Quial",
+      "Leo Ty Quial & Mary Grace C. Quial",
+      "Minda Nerissa Q. Ladera & Ruben C. Ladera",
+      "Zenaida B. Quial & Jessie Alberto Ty Quial",
+      "Crisanto A. Lim & Ma. Lina Q. Lim",
+      "Romeo Ty Quial & Eva L. Quial",
+      "Gilberto Ty Quial & Teresa C. Quial",
       "Tomas Rosales & Amor Rosales",
-      "Alona Carzon & Adelito Carzon",
-      "Atty. Fidel Amacna",
+      "Alona Q. Carzon & Adelito C. Carzon",
+      "Atty. Fidel Amacna & Fe Ann I. Amacna",
       "Dir. Max Aljibe & Ma. Fe Abunda",
-      "Hon. Judge Estudillo",
-      "Hon. Dyan Agda & Rowena Agda",
+      "Hon. Jose Ivan Dayan C. Agda & Rowena Agda",
       "Hon. Odelon Mabutin & Sally Rosales Tiu",
+      "Prov. Pros. Sixto Estudillo"
     ],
   },
   {
     title: "Secondary Sponsors",
     members: [
-      "Hon. Eduardo Ang Jr. & Karen Tiu Songo-Ang — Candle",
-      "Erlott R. Cheng & Joan R. Cheng — Veil",
-      "Imee Monsanto & Kuya Jun — Cord",
+      "Pros. Eduardo Ang Jr., CPA & Karen Tiu Songo-Ang — Candle",
+      "	Tee Jay R. Tan & Evangeline Rose C. Tan— Veil",
+      "Imelda Cristina C. Monsanto & German R. Monsanto III",
     ],
   },
   {
@@ -109,7 +111,8 @@ const entourageGroups = [
   },
   {
     title: "Celebrants",
-    members: ["Bishop", "Fr Myk", "Fr James", "Fr. Miel", "Fr Leroy"],
+    members: ["Bishop", "Rev. Fr. Jan Michael J. Gadicho", "Rev. Fr. James B. Abella", 
+      "Rev. Fr. Miel Sedfrey L. Nebrida", "FRev. Fr. Leroy R. Geli"],
   },
 ];
 const prenupPhotos = {
@@ -198,6 +201,49 @@ function getErrorMessage(result: unknown): string | null {
   }
   return null;
 }
+function DressCode() {
+  return (
+    <section
+      className="dress-code-section section-padding"
+      id="dress-code"
+      style={{ background: "#fffaf1", color: "#31000f" }}
+    >
+      <div className="section-heading" style={{ color: "#31000f" }}>
+        <p className="section-eyebrow" style={{ color: "#31000f" }}>Dressed for the celebration</p>
+        <h2 className="section-title" style={{ color: "#31000f" }}>Wedding Dress Code</h2>
+        <p className="section-description" style={{ color: "#31000f" }}>
+          “To keep our photos cohesive, please avoid 
+          wearing red, gold, champagne, beige, black, and white.”.
+        </p>
+      </div>
+      <div
+        className="dress-code-image-wrap"
+        style={{
+          width: "100%",
+          maxWidth: "760px",
+          margin: "0 auto",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <img
+          src="/media/wedding-dress-code.png"
+          alt="Wedding dress code guide for Ernel and Joy's wedding"
+          loading="lazy"
+          style={{
+            display: "block",
+            width: "100%",
+            height: "auto",
+            maxWidth: "100%",
+            objectFit: "contain",
+          }}
+        />
+      </div>
+    </section>
+  );
+}
+
 function SaveTheDate() {
   const year = 2026;
   const monthIndex = 11;
@@ -259,6 +305,61 @@ function App() {
   useEffect(() => {
     const timer = window.setTimeout(() => setShowInvitation(true), 3600);
     return () => window.clearTimeout(timer);
+  }, []);
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const targets = document.querySelectorAll<HTMLElement>(
+      [
+        ".welcome-section",
+        ".photo-collage-section .section-heading",
+        ".photo-collage-item",
+        ".entourage-section .section-heading",
+        ".entourage-card",
+        ".details-section .section-heading",
+        ".venue-card",
+        ".dress-code-section .section-heading",
+        ".dress-code-image-wrap",
+        ".countdown-section .section-heading",
+        ".countdown-unit",
+        ".countdown-date",
+        ".save-date-photo-panel",
+        ".save-date-calendar-panel",
+        ".rsvp-card",
+      ].join(","),
+    );
+
+    if (reduceMotion) {
+      targets.forEach((element) => element.classList.add("scroll-reveal-visible"));
+      return;
+    }
+
+    targets.forEach((element) => {
+      element.classList.add("scroll-reveal");
+      const siblingIndex = element.parentElement
+        ? Array.from(element.parentElement.children).indexOf(element)
+        : 0;
+      element.style.setProperty("--reveal-delay", `${Math.min(siblingIndex * 70, 280)}ms`);
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("scroll-reveal-visible");
+          } else {
+            entry.target.classList.remove("scroll-reveal-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.05,
+        rootMargin: "0px 0px -10% 0px",
+      },
+    );
+
+    targets.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
   }, []);
   const handleExplore = () => {
     document.getElementById("welcome")?.scrollIntoView({
@@ -341,8 +442,8 @@ function App() {
             <h1 className="visually-hidden">
               Ernel and Joy — Wedding Invitation
             </h1>
-            <div className="name name-ernel" aria-label="Ernel">
-              Ernel
+            <div className="name name-ernel" aria-label="ERNEL">
+              ERNEL
             </div>
             <div className="monogram-wrap">
               <img
@@ -352,9 +453,13 @@ function App() {
                 fetchPriority="high"
               />
             </div>
-            <div className="name name-joy" aria-label="Joy">
-              Joy
+            <div className="name name-joy" aria-label="JOY">
+              JOY
             </div>
+          </div>
+          <div className="hero-identity-caption" aria-label="Wedding couple names and date">
+            <p>ERNEL R. CHENG &amp; JERIC JOY TY QUAIL</p>
+            <p>19/12/2026</p>
           </div>
           <div
             className={`hero-details ${
@@ -449,7 +554,7 @@ function App() {
               <span className="entourage-rule" />
               <ul>
                 {group.members.map((member) => (
-                  <li key={member}>{member}</li>
+                  <li key={member} style={{ textTransform: "none" }}>{member}</li>
                 ))}
               </ul>
             </article>
@@ -556,9 +661,54 @@ function App() {
               </a>
             </div>
           </article>
+          <article className="venue-card">
+            <div className="venue-image-wrap">
+              <img
+                className="venue-image"
+                src="/media/accommodation.png"
+                alt="Travel and accommodation building in Borongan"
+                loading="lazy"
+              />
+              <span className="venue-image-label">Travel &amp; Accommodation</span>
+            </div>
+            <div className="venue-content">
+              <p className="venue-kicker">Travel &amp; Accommodation</p>
+              <h3>Travel &amp; Accommodation</h3>
+              <p className="venue-location">
+                <MapPin size={15} /> G. Abogado St., Borongan, Eastern Samar, Philippines, 6800
+              </p>
+              <div className="venue-meta">
+                <span>
+                  <CalendarDays size={16} /> December 19, 2026
+                </span>
+                <span>
+                  <MapPin size={16} /> Borongan, Eastern Samar
+                </span>
+              </div>
+              <div className="venue-qr">
+                <QRCodeSVG
+                  value={accommodationMapUrl}
+                  size={112}
+                  bgColor="#fff9ef"
+                  fgColor="#4a0018"
+                  level="H"
+                />
+                <p>Scan to find accommodation</p>
+              </div>
+              <a
+                className="map-link"
+                href={accommodationMapUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                View accommodation location <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
         </div>
       </section>
-    <section className="countdown-section section-padding" id="countdown">
+      <DressCode />
+      <section className="countdown-section section-padding" id="countdown">
         <div className="section-heading">
           <p className="section-eyebrow">Counting down to forever</p>
           <h2 className="section-title">Until We Say “I Do”</h2>
