@@ -34,7 +34,7 @@ const entourageGroups = [
     title: "Best Man and Men of Honor",
     members: [
       "Teofil Y. Rediang, CPA — Best Man",
-      "Julius Makinano — Man of Honor",
+      "Julius D. Makinano — Man of Honor",
       "Erich R. Cheng — Man of Honor",
     ],
   },
@@ -85,34 +85,34 @@ const entourageGroups = [
       "Dir. Max Aljibe & Ma. Fe Abunda",
       "Hon. Jose Ivan Dayan C. Agda & Rowena Agda",
       "Hon. Odelon Mabutin & Sally Rosales Tiu",
-      "Prov. Pros. Sixto Estudillo"
+      "Prov. Pros. Sixto Estudillo & Aida Bula Henshall"
     ],
   },
   {
     title: "Secondary Sponsors",
     members: [
-      "Pros. Eduardo Ang Jr., CPA & Karen Tiu Songo-Ang — Candle",
-      "	Tee Jay R. Tan & Evangeline Rose C. Tan— Veil",
-      "Imelda Cristina C. Monsanto & German R. Monsanto III",
+      "Pros. Eduardo Ang Jr., CPA & Karen Tiu Songo-Ang — CANDLE",
+      "	Tee Jay R. Tan & Evangeline Rose C. Tan— VEIL",
+      "Imelda Cristina C. Monsanto & German R. Monsanto III - CORD",
     ],
   },
   {
     title: "Flower Girls and Bearers",
     members: [
-      "Bea — Flower Girl",
-      "Pia — Flower Girl",
-      "Yana — Flower Girl",
-      "Jayden — Bible Bearer",
-      "Edward — Coin Bearer",
-      "Kayden — Ring Bearer",
-      "Awdee — Mini Groom",
-      "Faye — Mini Bride",
+      "Liana Glynnis A. Rodriguez — Flower Girl",
+      "Pia Aliah T. Ang — Flower Girl",
+      "Julianna Margaret T. Makinano — Flower Girl",
+      "Jayden James M. Amo — Bible Bearer",
+      "Elijah Zeke E. Rosales — Coin Bearer",
+      "Edward Francis T. Ang — Ring Bearer",
+      "Aaradhiya Ty Quial — Mini Groom",
+      "Faye Yvette C. Cheng — Mini Bride",
     ],
   },
   {
     title: "Celebrants",
-    members: ["Bishop", "Rev. Fr. Jan Michael J. Gadicho", "Rev. Fr. James B. Abella", 
-      "Rev. Fr. Miel Sedfrey L. Nebrida", "FRev. Fr. Leroy R. Geli"],
+    members: ["Most Rev. Crispin B. Vasquez, D.D.", "Rev. Fr. Jan Michael J. Gadicho", "Rev. Fr. James B. Abella", 
+      "Rev. Fr. Miel Sedfrey L. Nebrida", "Rev. Fr. Leroy R. Geli"],
   },
 ];
 const prenupPhotos = {
@@ -504,7 +504,6 @@ function App() {
           </div>
           <div className="hero-identity-caption" aria-label="Wedding couple names and date">
             <p>ERNEL R. CHENG &amp; JERIC JOY TY QUAIL</p>
-            <p>19/12/2026</p>
           </div>
           <div
             className={`hero-details ${
@@ -570,7 +569,7 @@ function App() {
           ].map((photo, index) => (
             <figure className={`photo-collage-item ${photo.className} polaroid-${index + 1}`} key={photo.src}>
               <img src={photo.src} alt={photo.alt} loading={index < 2 ? "eager" : "lazy"} />
-              <span className="photo-curtain" aria-hidden="true" />
+              <span className="photo-clothespin" aria-hidden="true" />
             </figure>
           ))}
         </div>
@@ -706,13 +705,13 @@ function App() {
               <img
                 className="venue-image"
                 src="/media/accommodation.png"
-                alt="Travel and accommodation building in Borongan"
+                alt="Prim Hotel in Borongan"
                 loading="lazy"
               />
-              <span className="venue-image-label">Travel &amp; Accommodation</span>
+              <span className="venue-image-label">Prim &amp; Hotel</span>
             </div>
             <div className="venue-content">
-              <p className="venue-kicker">Travel &amp; Accommodation</p>
+              <p className="venue-kicker">Prim &amp; Hotel</p>
               <h3>Travel &amp; Accommodation</h3>
               <p className="venue-location">
                 <MapPin size={15} /> G. Abogado St., Borongan, Eastern Samar, Philippines, 6800
