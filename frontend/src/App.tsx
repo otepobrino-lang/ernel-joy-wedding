@@ -141,6 +141,51 @@ function calculateCountdown(): CountdownValues {
     finished: difference <= 0,
   };
 }
+const WELCOME_MESSAGE = "With grateful hearts and a promise for forever, we invite you to share in the blessing of our wedding day. Together with our families, we would love for you to witness our vows and enjoy the celebration as we step into this chapter. Having you by our side means everything!";
+
+function TypewriterWelcome() {
+  const [visibleCharacters, setVisibleCharacters] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+
+  useEffect(() => {
+    const target = document.getElementById("welcome-message");
+    if (!target) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      setVisibleCharacters(WELCOME_MESSAGE.length);
+      return;
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setHasStarted(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.35 });
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!hasStarted || visibleCharacters >= WELCOME_MESSAGE.length) return;
+    const timer = window.setTimeout(() => {
+      setVisibleCharacters((current) => Math.min(current + 1, WELCOME_MESSAGE.length));
+    }, 27);
+    return () => window.clearTimeout(timer);
+  }, [hasStarted, visibleCharacters]);
+
+  return (
+    <p className="welcome-copy welcome-typewriter" id="welcome-message" aria-label={WELCOME_MESSAGE}>
+      <span aria-hidden="true">{WELCOME_MESSAGE.slice(0, visibleCharacters)}</span>
+      {visibleCharacters < WELCOME_MESSAGE.length && hasStarted && (
+        <span className="typewriter-caret" aria-hidden="true" />
+      )}
+    </p>
+  );
+}
+
 function Countdown() {
   const [timeLeft, setTimeLeft] = useState(calculateCountdown);
   useEffect(() => {
@@ -503,13 +548,7 @@ function App() {
         </div>
         <p className="section-eyebrow">With love in our hearts</p>
         <h2 className="section-title">A beautiful beginning</h2>
-        <p className="welcome-copy">
-          With grateful hearts and a promise for forever,
-          we invite you to share in the blessing of our wedding day.
-          Together with our families, we would love for you to&#x20;
-          witness our vows and enjoy the celebration as we step into this chapter.
-          Having you by our side means everything!
-        </p>
+        <TypewriterWelcome />
         <p className="script-signature">With love, Ernel &amp; Joy</p>
       </section>
       <section className="photo-collage-section section-padding" id="our-photos">
@@ -531,6 +570,7 @@ function App() {
           ].map((photo, index) => (
             <figure className={`photo-collage-item ${photo.className} polaroid-${index + 1}`} key={photo.src}>
               <img src={photo.src} alt={photo.alt} loading={index < 2 ? "eager" : "lazy"} />
+              <span className="photo-curtain" aria-hidden="true" />
             </figure>
           ))}
         </div>
