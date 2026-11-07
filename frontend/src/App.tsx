@@ -503,7 +503,7 @@ function App() {
             </div>
           </div>
           <div className="hero-identity-caption" aria-label="Wedding couple names and date">
-            <p>ERNEL R. CHENG &amp; JERIC JOY TY QUAIL</p>
+            <p>ERNEL R. CHENG &amp; JERIC JOY TY QUIAL</p>
           </div>
           <div
             className={`hero-details ${
