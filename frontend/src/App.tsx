@@ -36,7 +36,7 @@ const entourageGroups = [
     title: "Best Man and Men of Honor",
     members: [
       "Teofil Y. Rediang, CPA — Best Man",
-      "Julius Makinano — Man of Honor",
+      "Julius D. Makinano — Man of Honor",
       "Erich R. Cheng — Man of Honor",
     ],
   },
@@ -85,36 +85,36 @@ const entourageGroups = [
       "Alona Q. Carzon & Adelito C. Carzon",
       "Atty. Fidel Amacna & Fe Ann I. Amacna",
       "Dir. Max Aljibe & Ma. Fe Abunda",
+      "Prov. Pros. Sixto Estudillo & Aida Bula Henshall",
       "Hon. Jose Ivan Dayan C. Agda & Rowena Agda",
-      "Hon. Odelon Mabutin & Sally Rosales Tiu",
-      "Prov. Pros. Sixto Estudillo"
+      "Hon. Odelon Mabutin & Sally Rosales Tiu"
     ],
   },
   {
     title: "Secondary Sponsors",
     members: [
       "Pros. Eduardo Ang Jr., CPA & Karen Tiu Songo-Ang — Candle",
-      "	Tee Jay R. Tan & Evangeline Rose C. Tan— Veil",
-      "Imelda Cristina C. Monsanto & German R. Monsanto III",
+      "Tee Jay R. Tan & Evangeline Rose C. Tan— Veil",
+      "Imelda Cristina C. Monsanto & German R. Monsanto III - Cord",
     ],
   },
   {
     title: "Flower Girls and Bearers",
     members: [
-      "Bea — Flower Girl",
-      "Pia — Flower Girl",
-      "Yana — Flower Girl",
-      "Jayden — Bible Bearer",
-      "Edward — Coin Bearer",
-      "Kayden — Ring Bearer",
-      "Awdee — Mini Groom",
-      "Faye — Mini Bride",
+      "Liana Glynnis A. Rodriguez — Flower Girl",
+      "Pia Aliah T. Ang — Flower Girl",
+      "YJulianna Margaret T. Makinano — Flower Girl",
+      "Jayden James M. Amo — Bible Bearer",
+      "Elijah Zeke E. Rosales — Coin Bearer",
+      "Edward Francis T. Ang — Ring Bearer",
+      "Aaradhiya Ty Quial — Mini Groom",
+      "Aaradhiya Ty Quial — Mini Bride",
     ],
   },
   {
     title: "Celebrants",
-    members: ["Bishop", "Rev. Fr. Jan Michael J. Gadicho", "Rev. Fr. James B. Abella", 
-      "Rev. Fr. Miel Sedfrey L. Nebrida", "FRev. Fr. Leroy R. Geli"],
+    members: ["Most Rev. Crispin B. Vasquez, D.D.", "Rev. Fr. Jan Michael J. Gadicho", "Rev. Fr. James B. Abella", 
+      "Rev. Fr. Miel Sedfrey L. Nebrida", "Rev. Fr. Leroy R. Geli"],
   },
 ];
 type CountdownValues = {
@@ -442,7 +442,7 @@ function App() {
           <div className="name name-joy" aria-label="JOY">JOY</div>
         </div>
         <div className="hero-identity-caption" aria-label="Wedding couple names and date">
-          <p>ERNEL R. CHENG &amp; JERIC JOY TY QUAIL</p>
+          <p>ERNEL R. CHENG &amp; JERIC JOY TY QUIAL</p>
         </div>
         <div className={`hero-details ${showInvitation ? "details-visible" : ""}`}>
           <div className="gold-divider" aria-hidden="true"><span /><Heart size={15} strokeWidth={1.3} /><span /></div>
@@ -531,9 +531,9 @@ function App() {
           </div>
         </article>
         <article className="venue-card">
-          <div className="venue-image-wrap"><img className="venue-image" src="/media/accommodation.png" alt="Travel and accommodation building in Borongan" loading="lazy" /><span className="venue-image-label">Travel &amp; Accommodation</span></div>
+          <div className="venue-image-wrap"><img className="venue-image" src="/media/accommodation.png" alt="Travel and accommodation building in Borongan" loading="lazy" /><span className="venue-image-label">Prim &amp; Hotel</span></div>
           <div className="venue-content">
-            <p className="venue-kicker">Travel &amp; Accommodation</p><h3>Travel &amp; Accommodation</h3>
+            <p className="venue-kicker">Travel &amp; Accommodation</p><h3>Prim &amp; Hotel</h3>
             <p className="venue-location"><MapPin size={15} /> G. Abogado St., Borongan, Eastern Samar, Philippines, 6800</p>
             <div className="venue-meta"><span><CalendarDays size={16} /> December 19, 2026</span><span><MapPin size={16} /> Borongan, Eastern Samar</span></div>
             <div className="venue-qr"><QRCodeSVG value={accommodationMapUrl} size={112} bgColor="#fff9ef" fgColor="#4a0018" level="H" /><p>Scan to find accommodation</p></div>
