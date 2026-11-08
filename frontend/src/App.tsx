@@ -117,14 +117,6 @@ const entourageGroups = [
       "Rev. Fr. Miel Sedfrey L. Nebrida", "FRev. Fr. Leroy R. Geli"],
   },
 ];
-const prenupPhotos = {
-  opening: "/media/prenup-01-embraced.png",
-  welcome: "/media/prenup-02-romantic.png",
-  entourage: "/media/prenup-03-ceremonial.png",
-  venues: "/media/prenup-04-regal.png",
-  rsvp: "/media/prenup-05-traditional.png",
-  closing: "/media/prenup-06-crimson.png",
-};
 type CountdownValues = {
   days: number;
   hours: number;
