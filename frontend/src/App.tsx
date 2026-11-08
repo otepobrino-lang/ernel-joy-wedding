@@ -451,7 +451,6 @@ function App() {
         </div>
         <div className="hero-identity-caption" aria-label="Wedding couple names and date">
           <p>ERNEL R. CHENG &amp; JERIC JOY TY QUAIL</p>
-          <p>19/12/2026</p>
         </div>
         <div className={`hero-details ${showInvitation ? "details-visible" : ""}`}>
           <div className="gold-divider" aria-hidden="true"><span /><Heart size={15} strokeWidth={1.3} /><span /></div>
