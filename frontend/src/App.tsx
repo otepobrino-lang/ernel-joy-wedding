@@ -1,5 +1,5 @@
 
-import { useEffect, useState, type FormEvent, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent, type MouseEvent } from "react";
 import "./App.css";
 import {
   ArrowDown,
@@ -10,6 +10,7 @@ import {
   MapPin,
   Menu,
   X,
+  Volume2,
   VolumeX,
 } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
@@ -46,7 +47,7 @@ const entourageGroups = [
     "Dra. Jhea Allyza B. Quial",
     "Dra. Melanie C. Chicano",
     "Sarah Chua Co",
-    "Renz Kimberly E. Camargo",
+    "Hon. Renz Kimberly E. Camargo",
     "Nikki Jean S. Obrino",
     "Princess May P. Corpuz",
     "Kim Andrea Ty Lee Tan Be",
@@ -63,12 +64,12 @@ const entourageGroups = [
       "James Vergel L. Biliran",
       "Anthony B. Cepeda",
       "Conrad Q. Tabanao",
-      "Joseph Mikhail M. Erot",
+      "Engr. Joseph Mikhail M. Erot",
       "Atty. Michael Noel D. Obrino, CPA",
       "Dave Erwin B. Cheng",
-      "Sebastian Cheng",
+      "Lance Sebastian Cheng",
       "Jared Matthew T. Makinano",
-      "Derrick C. Quial",
+      "Derick C. Quial",
       "Dean Earnest B. Cheng"
     ],
   },
@@ -85,16 +86,16 @@ const entourageGroups = [
       "Alona Q. Carzon & Adelito C. Carzon",
       "Atty. Fidel Amacna & Fe Ann I. Amacna",
       "Dir. Max Aljibe & Ma. Fe Abunda",
-      "Prov. Pros. Sixto Estudillo & Aida Bula Henshall",
       "Hon. Jose Ivan Dayan C. Agda & Rowena Agda",
-      "Hon. Odelon Mabutin & Sally Rosales Tiu"
+      "Hon. Odelon Mabutin & Sally Rosales Tiu",
+      "Prov. Pros. Sixto Estudillo"
     ],
   },
   {
     title: "Secondary Sponsors",
     members: [
       "Pros. Eduardo Ang Jr., CPA & Karen Tiu Songo-Ang — Candle",
-      "Tee Jay R. Tan & Evangeline Rose C. Tan— Veil",
+      "	Tee Jay R. Tan & Evangeline Rose C. Tan— Veil",
       "Imelda Cristina C. Monsanto & German R. Monsanto III - Cord",
     ],
   },
@@ -103,12 +104,12 @@ const entourageGroups = [
     members: [
       "Liana Glynnis A. Rodriguez — Flower Girl",
       "Pia Aliah T. Ang — Flower Girl",
-      "YJulianna Margaret T. Makinano — Flower Girl",
+      "Julianna Margaret T. Makinano — Flower Girl",
       "Jayden James M. Amo — Bible Bearer",
       "Elijah Zeke E. Rosales — Coin Bearer",
       "Edward Francis T. Ang — Ring Bearer",
       "Aaradhiya Ty Quial — Mini Groom",
-      "Aaradhiya Ty Quial — Mini Bride",
+      "Faye Yvette C. Cheng — Mini Bride",
     ],
   },
   {
@@ -299,6 +300,8 @@ function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [rsvpError, setRsvpError] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     const syncPage = () => setActivePage(getPageFromHash());
@@ -367,7 +370,50 @@ function App() {
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-  const handleEnter = () => navigate("home");
+  const handleEnter = () => {
+    navigate("home");
+  };
+
+  const toggleBackgroundMusic = async (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (audio.paused) {
+      try {
+        await audio.play();
+        setIsMusicPlaying(true);
+      } catch {
+        setIsMusicPlaying(false);
+      }
+    } else {
+      audio.pause();
+      setIsMusicPlaying(false);
+    }
+  };
+
+  const renderMusicControls = () => (
+    <>
+      <audio
+        ref={audioRef}
+        src="/media/irs.mp3"
+        loop
+        preload="none"
+        onPlay={() => setIsMusicPlaying(true)}
+        onPause={() => setIsMusicPlaying(false)}
+      />
+      {activePage !== "home" && <button
+        className="wedding-music-toggle"
+        type="button"
+        onClick={toggleBackgroundMusic}
+        aria-label={isMusicPlaying ? "Pause background music" : "Play background music"}
+        title={isMusicPlaying ? "Pause background music" : "Play background music"}
+      >
+        {isMusicPlaying ? <Volume2 size={16} strokeWidth={1.7} /> : <VolumeX size={16} strokeWidth={1.7} />}
+        <span>{isMusicPlaying ? "Music on" : "Play music"}</span>
+      </button>}
+    </>
+  );
   const handleLandingKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -441,20 +487,27 @@ function App() {
           </div>
           <div className="name name-joy" aria-label="JOY">JOY</div>
         </div>
-        <div className="hero-identity-caption" aria-label="Wedding couple names and date">
-          <p>ERNEL R. CHENG &amp; JERIC JOY TY QUIAL</p>
+        <div className="hero-parents" aria-label="Parents of the couple">
+          <div className="hero-parent-group">
+            <p className="hero-parent-heading">Joy's Parents</p>
+            <p>Eduardo S. Ang, Sr.</p>
+            <p>Mialgros Q. Ang</p>
+          </div>
+          <div className="hero-parent-group">
+            <p className="hero-parent-heading">Ernel's Parents</p>
+            <p>Efren Willy Lu Cheng</p>
+            <p>Evita R. Cheng</p>
+          </div>
         </div>
         <div className={`hero-details ${showInvitation ? "details-visible" : ""}`}>
           <div className="gold-divider" aria-hidden="true"><span /><Heart size={15} strokeWidth={1.3} /><span /></div>
-          <p className="invitation-title">Request the pleasure of your company</p>
-          <p className="invitation-subtitle">As we begin our forever together</p>
+          <p className="invitation-title">Surrounded by love and with the blessing of our parents, we invite you to celebrate the beginning of our forever.</p>
           <button className="explore-button" onClick={(event) => { event.stopPropagation(); handleEnter(); }} type="button">
             <span>Discover our wedding</span><ArrowDown size={15} strokeWidth={1.5} />
           </button>
         </div>
       </div>
       <div className="hero-footer"><span>Ernel &amp; Joy</span><span className="footer-separator">✦</span><span>Our forever begins here</span></div>
-      <div className="sound-note" aria-label="Background video is muted"><VolumeX size={13} strokeWidth={1.5} /><span>Silent film</span></div>
       <p className="landing-tap-hint">CLICK ANYWHERE TO ENTER</p>
     </section>
   );
@@ -531,9 +584,9 @@ function App() {
           </div>
         </article>
         <article className="venue-card">
-          <div className="venue-image-wrap"><img className="venue-image" src="/media/accommodation.png" alt="Travel and accommodation building in Borongan" loading="lazy" /><span className="venue-image-label">Prim &amp; Hotel</span></div>
+          <div className="venue-image-wrap"><img className="venue-image" src="/media/accommodation.png" alt="Travel and accommodation building in Borongan" loading="lazy" /><span className="venue-image-label">Travel &amp; Accommodation</span></div>
           <div className="venue-content">
-            <p className="venue-kicker">Travel &amp; Accommodation</p><h3>Prim &amp; Hotel</h3>
+            <p className="venue-kicker">Travel &amp; Accommodation</p><h3>Travel &amp; Accommodation</h3>
             <p className="venue-location"><MapPin size={15} /> G. Abogado St., Borongan, Eastern Samar, Philippines, 6800</p>
             <div className="venue-meta"><span><CalendarDays size={16} /> December 19, 2026</span><span><MapPin size={16} /> Borongan, Eastern Samar</span></div>
             <div className="venue-qr"><QRCodeSVG value={accommodationMapUrl} size={112} bgColor="#fff9ef" fgColor="#4a0018" level="H" /><p>Scan to find accommodation</p></div>
@@ -584,11 +637,18 @@ function App() {
   const renderHomePage = () => (
     <>
       <section className="wedding-collage-home" aria-label="Ernel and Joy wedding invitation">
-        <div className="collage-envelope" aria-hidden="true">
-          <img className="collage-envelope-art" src="/media/home-layout/open-envelope.png" alt="" />
-          <figure className="collage-envelope-photo">
-            <img src="/media/home-layout/prenup-02-romantic.png" alt="Ernel and Joy sharing a romantic moment" />
-          </figure>
+        <button
+          className={`collage-vinyl${isMusicPlaying ? " is-playing" : ""}`}
+          type="button"
+          onClick={toggleBackgroundMusic}
+          aria-label={isMusicPlaying ? "Pause wedding music" : "Play wedding music"}
+          aria-pressed={isMusicPlaying}
+          title={isMusicPlaying ? "Pause wedding music" : "Play wedding music"}
+        >
+          <img src="/media/home-layout/vinyl-record.png" alt="" />
+        </button>
+        <div className="collage-envelope" aria-label="An open burgundy envelope holding a Polaroid photograph of Ernel and Joy">
+          <img className="collage-envelope-art" src="/media/home-layout/open-envelope-polaroid.png" alt="Open burgundy envelope with Ernel and Joy's Polaroid photograph inserted inside" />
         </div>
 
         <section className="collage-welcome" aria-label="With love in our hearts">
@@ -623,6 +683,10 @@ function App() {
 
         <img className="collage-flower-stamps" src="/media/home-layout/flower-stamps.png" alt="Two vintage floral postage stamps" />
 
+        <div className="collage-closing">
+          <span>With love,</span>
+          <strong>Ernel &amp; Joy</strong>
+        </div>
       </section>
 
       <section className="countdown-section section-padding" id="countdown">
@@ -632,10 +696,19 @@ function App() {
     </>
   );
 
-  if (activePage === "landing") return <main className="wedding-page">{renderLanding()}</main>;
+  if (activePage === "landing") {
+    return (
+      <>
+        {renderMusicControls()}
+        <main className="wedding-page">{renderLanding()}</main>
+      </>
+    );
+  }
 
   return (
-    <main className="wedding-page wedding-main-site">
+    <>
+      {renderMusicControls()}
+      <main className={`wedding-page wedding-main-site page-${activePage}`}>
       {renderNavigation()}
       {activePage === "home" && renderHomePage()}
       {activePage === "entourage" && renderEntouragePage()}
@@ -646,7 +719,8 @@ function App() {
         <p>December 19, 2026 <span>·</span> Borongan, Eastern Samar</p>
         <p className="footer-closing-line">With love, and gratitude for being part of our beginning.</p>
       </footer>
-    </main>
+      </main>
+    </>
   );
 }
 

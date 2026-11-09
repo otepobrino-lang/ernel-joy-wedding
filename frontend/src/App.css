@@ -2322,3 +2322,658 @@ body { background: #fffaf1; }
   .wedding-site-nav button:last-child { border-bottom: 0; }
   .wedding-site-nav button.active { color: #e8c67d !important; }
 }
+
+
+/* Landing-page parents and invitation copy */
+.wedding-hero .hero-parents {
+  display: grid;
+  width: min(760px, calc(100% - 2rem));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 4vw, 3.5rem);
+  margin: clamp(0.8rem, 2.5vh, 1.5rem) auto clamp(1.1rem, 3vh, 1.8rem);
+  padding: 0 0.75rem;
+  color: var(--wedding-gold, #e8c67d);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(0.86rem, 1.65vw, 1.12rem);
+  line-height: 1.45;
+  letter-spacing: 0.035em;
+  text-align: center;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+  box-sizing: border-box;
+}
+
+.wedding-hero .hero-parent-group p {
+  margin: 0.12rem 0;
+}
+
+.wedding-hero .hero-parent-group .hero-parent-heading {
+  margin-bottom: 0.35rem;
+  color: rgba(232, 198, 125, 0.82);
+  font-family: Manrope, Arial, sans-serif;
+  font-size: clamp(0.55rem, 1.05vw, 0.68rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.wedding-hero .hero-details {
+  max-width: min(760px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.wedding-hero .invitation-title {
+  max-width: 700px;
+  margin: 0 auto clamp(1.2rem, 3vh, 1.8rem);
+  color: var(--wedding-ivory, #fff5e9);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.05rem, 2.1vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.035em;
+  text-wrap: balance;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.wedding-music-toggle {
+  position: fixed;
+  z-index: 100;
+  right: clamp(0.8rem, 2.5vw, 1.5rem);
+  bottom: clamp(0.8rem, 2.5vw, 1.5rem);
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid rgba(232, 198, 125, 0.72);
+  border-radius: 999px;
+  color: var(--wedding-gold);
+  background: rgba(38, 0, 10, 0.9);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.24);
+  font-family: Manrope, Arial, sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: background 220ms ease, color 220ms ease, transform 220ms ease;
+}
+
+.wedding-music-toggle:hover {
+  color: var(--wedding-deep-burgundy);
+  background: var(--wedding-gold);
+  transform: translateY(-2px);
+}
+
+.wedding-music-toggle:focus-visible {
+  outline: 2px solid var(--wedding-ivory);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .wedding-hero .hero-parents {
+    width: min(100% - 1.25rem, 480px);
+    gap: 0.7rem;
+    margin-top: 0.7rem;
+    margin-bottom: 1rem;
+    padding-inline: 0.15rem;
+    font-size: clamp(0.75rem, 3.1vw, 0.95rem);
+    letter-spacing: 0.01em;
+  }
+
+  .wedding-hero .hero-parent-group .hero-parent-heading {
+    font-size: clamp(0.48rem, 1.9vw, 0.6rem);
+    letter-spacing: 0.1em;
+  }
+
+  .wedding-hero .invitation-title {
+    font-size: clamp(1rem, 4.1vw, 1.22rem);
+    line-height: 1.38;
+  }
+
+  .wedding-music-toggle {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    min-height: 40px;
+    padding: 0.58rem 0.75rem;
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .wedding-hero .hero-parents {
+    gap: 0.4rem;
+    font-size: 0.7rem;
+  }
+
+  .wedding-hero .hero-parent-group .hero-parent-heading {
+    letter-spacing: 0.06em;
+  }
+}
+
+
+/* Interactive vinyl placed behind the open invitation envelope */
+.collage-vinyl {
+  position: absolute;
+  z-index: 1;
+  left: 43%;
+  top: 4.5%;
+  width: 57%;
+  aspect-ratio: 1;
+  display: block;
+  overflow: visible;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  isolation: isolate;
+  transform: rotate(0deg);
+  transition: transform 420ms ease, filter 420ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.collage-vinyl img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 8px 10px rgba(35, 0, 8, .22));
+}
+.collage-vinyl:hover,
+.collage-vinyl:focus-visible {
+  z-index: 3;
+  transform: scale(1.035);
+  filter: drop-shadow(0 8px 12px rgba(35, 0, 8, .2));
+  outline: none;
+}
+.collage-vinyl:focus-visible::after {
+  content: "";
+  position: absolute;
+  inset: 2%;
+  border: 2px solid #d8b36c;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.collage-vinyl.is-playing img {
+  animation: ej-vinyl-spin 7s linear infinite;
+}
+.collage-vinyl-hint {
+  position: absolute;
+  z-index: 2;
+  left: 59%;
+  top: 17%;
+  width: 31%;
+  color: #e2b85e;
+  font-family: Manrope, Arial, sans-serif;
+  font-size: clamp(6px, .85vw, 10px);
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .8);
+  pointer-events: none;
+}
+.collage-vinyl-message {
+  position: absolute;
+  z-index: 6;
+  top: 32%;
+  left: 52%;
+  width: 42%;
+  margin: 0;
+  color: #6d2635;
+  font: 600 clamp(7px, .9vw, 10px)/1.4 Manrope, Arial, sans-serif;
+  text-align: center;
+  pointer-events: none;
+}
+.collage-envelope {
+  z-index: 2;
+  left: 17%;
+  top: .5%;
+  width: 55%;
+  height: 35%;
+  pointer-events: none;
+}
+.collage-envelope-art {
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 9px 12px rgba(54, 0, 15, .16));
+}
+@keyframes ej-vinyl-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@media (max-width: 600px) {
+  .collage-vinyl {
+    left: 43%;
+    top: 4%;
+    width: 59%;
+  }
+  .collage-vinyl-hint {
+    font-size: clamp(5px, 1.5vw, 8px);
+  }
+  .collage-envelope {
+    left: 13%;
+    top: .5%;
+    width: 61%;
+    height: 34%;
+  }
+  .collage-vinyl-message {
+    top: 30%;
+    left: 51%;
+    width: 43%;
+    font-size: 7px;
+  }
+}
+@media (max-width: 380px) {
+  .collage-envelope {
+    left: 10%;
+    width: 64%;
+  }
+  .collage-vinyl {
+    left: 40%;
+    width: 63%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .collage-vinyl,
+  .collage-vinyl img {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+/* Decorative side artwork for desktop home and entourage pages */
+.wedding-main-site {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: #fffaf1;
+}
+
+.wedding-main-site::before,
+.wedding-main-site::after {
+  position: absolute;
+  z-index: 0;
+  top: 5.25rem;
+  bottom: 0;
+  width: clamp(190px, 22vw, 390px);
+  content: "";
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.96;
+}
+
+.wedding-main-site::before {
+  left: 0;
+  background-image: url("/media/home-layout/floral-side-left.jpg");
+  background-position: left center;
+}
+
+.wedding-main-site::after {
+  right: 0;
+  background-image: url("/media/home-layout/floral-side-right.jpg");
+  background-position: right center;
+}
+
+.wedding-main-site > * {
+  position: relative;
+  z-index: 1;
+}
+
+.page-home::before,
+.page-home::after,
+.page-entourage::before,
+.page-entourage::after {
+  display: block;
+}
+
+.page-home .wedding-collage-home,
+.page-home .countdown-section,
+.page-entourage .entourage-section {
+  background-color: transparent !important;
+}
+
+.page-home .wedding-collage-home {
+  z-index: 1;
+}
+
+.page-home .countdown-section {
+  position: relative;
+  z-index: 1;
+}
+
+.page-entourage .entourage-section {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1100px) {
+  .wedding-main-site::before,
+  .wedding-main-site::after {
+    width: clamp(230px, 23vw, 430px);
+    background-size: 100% 100%;
+  }
+
+  .page-home .wedding-collage-home {
+    width: min(100%, 760px);
+  }
+
+  .page-entourage .entourage-section {
+    padding-left: clamp(230px, 23vw, 430px);
+    padding-right: clamp(230px, 23vw, 430px);
+  }
+}
+
+@media (max-width: 700px) {
+  .page-home::before,
+  .page-home::after {
+    display: none;
+  }
+
+  .page-entourage::before,
+  .page-entourage::after {
+    display: block;
+    top: 4.5rem;
+    bottom: 0;
+    width: 50%;
+    opacity: 0.22;
+    background-size: cover;
+  }
+
+  .page-entourage::before {
+    background-position: left center;
+  }
+
+  .page-entourage::after {
+    background-position: right center;
+  }
+
+  .page-entourage .entourage-section {
+    background: rgba(255, 250, 241, 0.78) !important;
+  }
+}
+
+
+/* Final transparent floral side panels for desktop home and entourage layouts */
+.wedding-main-site {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.wedding-main-site::before,
+.wedding-main-site::after {
+  position: absolute;
+  z-index: 0;
+  top: 5.25rem;
+  bottom: 0;
+  display: block;
+  width: clamp(190px, 22vw, 374px);
+  content: "";
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 1;
+}
+
+.wedding-main-site::before {
+  left: 0;
+  background-image: url("/media/home-layout/floral-side-left.png");
+  background-position: left top;
+}
+
+.wedding-main-site::after {
+  right: 0;
+  background-image: url("/media/home-layout/floral-side-right.png");
+  background-position: right top;
+}
+
+.wedding-main-site > * {
+  position: relative;
+  z-index: 1;
+}
+
+.page-home::before,
+.page-home::after,
+.page-entourage::before,
+.page-entourage::after {
+  display: block;
+}
+
+.page-home .wedding-collage-home,
+.page-home .countdown-section,
+.page-entourage .entourage-section {
+  background-color: transparent !important;
+}
+
+.page-home .wedding-collage-home,
+.page-home .countdown-section,
+.page-entourage .entourage-section {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1100px) {
+  .wedding-main-site::before,
+  .wedding-main-site::after {
+    width: clamp(230px, 22vw, 374px);
+    background-size: 100% 100%;
+  }
+
+  .page-home .wedding-collage-home {
+    width: min(100%, 760px);
+  }
+
+  .page-entourage .entourage-section {
+    padding-left: clamp(230px, 22vw, 374px);
+    padding-right: clamp(230px, 22vw, 374px);
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1099px) {
+  .wedding-main-site::before,
+  .wedding-main-site::after {
+    width: clamp(150px, 19vw, 220px);
+  }
+
+  .page-entourage .entourage-section {
+    padding-left: clamp(150px, 19vw, 220px);
+    padding-right: clamp(150px, 19vw, 220px);
+  }
+}
+
+@media (max-width: 700px) {
+  .page-home::before,
+  .page-home::after {
+    display: none;
+  }
+
+  .page-entourage::before,
+  .page-entourage::after {
+    display: block;
+    top: 4.5rem;
+    bottom: 0;
+    width: 50%;
+    opacity: 0.24;
+    background-size: 100% 100%;
+  }
+
+  .page-entourage::before {
+    left: 0;
+    background-position: left top;
+  }
+
+  .page-entourage::after {
+    right: 0;
+    background-position: right top;
+  }
+
+  .page-entourage .entourage-section {
+    background: rgba(255, 250, 241, 0.78) !important;
+  }
+}
+
+
+/* Mobile navigation stacking and layout correction */
+@media (max-width: 700px) {
+  .wedding-site-header {
+    position: sticky !important;
+    top: 0;
+    z-index: 1000 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 58px;
+    padding: 0.45rem 1rem;
+    isolation: isolate;
+    overflow: visible !important;
+  }
+
+  .mobile-menu-toggle {
+    position: relative;
+    z-index: 1003;
+    display: inline-flex !important;
+    flex: 0 0 42px;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    color: #fff !important;
+    background: transparent;
+    border: 0;
+  }
+
+  .mobile-menu-toggle svg {
+    width: 25px;
+    height: 25px;
+    color: #fff !important;
+    stroke: #fff !important;
+  }
+
+  .wedding-site-nav {
+    position: absolute !important;
+    z-index: 1002 !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: 0 !important;
+    display: none;
+    width: 100% !important;
+    max-height: min(70vh, 360px);
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    margin: 0;
+    padding: 0.35rem 1rem 0.7rem !important;
+    overflow-y: auto;
+    border-top: 1px solid rgba(232, 198, 125, 0.28);
+    background: #350010 !important;
+    box-shadow: 0 14px 24px rgba(20, 0, 6, 0.32);
+    box-sizing: border-box;
+  }
+
+  .wedding-site-nav.mobile-menu-open {
+    display: flex !important;
+  }
+
+  .wedding-site-nav button {
+    position: relative;
+    display: flex;
+    width: 100% !important;
+    min-height: 50px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.85rem 0.35rem !important;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fff !important;
+    background: transparent !important;
+    text-align: left;
+    font-size: 0.82rem !important;
+    letter-spacing: 0.06em;
+    box-sizing: border-box;
+  }
+
+  .wedding-site-nav button:last-child {
+    border-bottom: 0;
+  }
+
+  .wedding-site-nav button.active {
+    color: #e8c67d !important;
+  }
+
+  .wedding-site-nav button.active::after {
+    right: auto;
+    bottom: 0.45rem;
+    left: 0.35rem;
+    width: 2.25rem;
+    height: 1px;
+    background: #e8c67d;
+  }
+
+  .wedding-main-site > .wedding-site-header {
+    z-index: 1000 !important;
+  }
+}
+
+
+/* Floral side artwork on the Wedding Day page */
+.page-wedding-day::before,
+.page-wedding-day::after {
+  display: block;
+}
+
+.page-wedding-day .details-section {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+@media (min-width: 1100px) {
+  .page-wedding-day::before,
+  .page-wedding-day::after {
+    top: 5.25rem;
+    bottom: 0;
+    width: clamp(230px, 22vw, 374px);
+    background-size: 100% 100%;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1099px) {
+  .page-wedding-day::before,
+  .page-wedding-day::after {
+    top: 5.25rem;
+    bottom: 0;
+    width: clamp(150px, 19vw, 220px);
+    background-size: 100% 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .page-wedding-day::before,
+  .page-wedding-day::after {
+    display: block;
+    top: 4.5rem;
+    bottom: 0;
+    width: 50%;
+    opacity: 0.24;
+    background-size: 100% 100%;
+  }
+
+  .page-wedding-day::before {
+    left: 0;
+    background-position: left top;
+  }
+
+  .page-wedding-day::after {
+    right: 0;
+    background-position: right top;
+  }
+
+  .page-wedding-day .details-section {
+    background: rgba(255, 250, 241, 0.78) !important;
+  }
+}
