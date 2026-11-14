@@ -86,9 +86,10 @@ const entourageGroups = [
       "Alona Q. Carzon & Adelito C. Carzon",
       "Atty. Fidel Amacna & Fe Ann I. Amacna",
       "Dir. Max Aljibe & Ma. Fe Abunda",
+      "Prov. Pros. Sixto Estudillo & Aida Bula Henshall",
       "Hon. Jose Ivan Dayan C. Agda & Rowena Agda",
       "Hon. Odelon Mabutin & Sally Rosales Tiu",
-      "Prov. Pros. Sixto Estudillo"
+      "Prov. Pros. Sixto Estudillo & Aida Bula Henshall"
     ],
   },
   {
