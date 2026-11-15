@@ -76,10 +76,10 @@ const entourageGroups = [
   {
     title: "Principal Sponsors",
     members: [
+      "Hon. Jose Ivan Dayan C. Agda & Dra. Rowena Agda",
       "Tommy C. Rosales & Amor Rosales",
       "Dir. Maximo C. Aljibe & Maria Fe R. Abunda",
       "Prov. Pros. Sixto Estudillo & Aida Bula Henshall",
-      "Hon. Jose Ivan Dayan C. Agda & Dra. Rowena Agda",
       "Hon. Odelon Mabutin & Sally Rosales Tiu",
       "Atty. Fidel Amacna & Fe Ann I. Amacna",
       "Romeo Ty Quial & Eva L. Quial",
