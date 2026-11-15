@@ -30,7 +30,7 @@ const entourageGroups = [
     members: [
       "Jeric Jane Ty Quial — Maid of Honor",
       "Irah Adelita T. Makinano — Matron of Honor",
-      "Gloria B. Cheng — Matron of Honor",
+      "Oya B. Cheng — Matron of Honor",
     ],
   },
   {
@@ -53,7 +53,7 @@ const entourageGroups = [
     "Kim Andrea Ty Lee Tan Be",
     "Kaye Vicenta Felize T. Ang",
     "Miyben Antonette Q. Ladera",
-    "Danella Yvette B. Cheng",
+    "Danella Evette B. Cheng",
     "Genes R. Paciencia",
     "Elbert Q. Rodriguez, Jr."
     ],
@@ -76,19 +76,19 @@ const entourageGroups = [
   {
     title: "Principal Sponsors",
     members: [
-      "Leo Ty Quial & Mary Grace C. Quial",
-      "Minda Nerissa Q. Ladera & Ruben C. Ladera",
-      "Zenaida B. Quial & Jessie Alberto Ty Quial",
-      "Crisanto A. Lim & Ma. Lina Q. Lim",
-      "Romeo Ty Quial & Eva L. Quial",
-      "Gilberto Ty Quial & Teresa C. Quial",
-      "Tomas Rosales & Amor Rosales",
-      "Alona Q. Carzon & Adelito C. Carzon",
-      "Atty. Fidel Amacna & Fe Ann I. Amacna",
-      "Dir. Maximo C. Aljibe & Ma. Fe R. Abunda",
+      "Tommy C. Rosales & Amor Rosales",
+      "Dir. Maximo C. Aljibe & Maria Fe R. Abunda",
       "Prov. Pros. Sixto Estudillo & Aida Bula Henshall",
       "Hon. Jose Ivan Dayan C. Agda & Dra. Rowena Agda",
-      "Hon. Odelon Mabutin & Sally Rosales Tiu"
+      "Hon. Odelon Mabutin & Sally Rosales Tiu",
+      "Atty. Fidel Amacna & Fe Ann I. Amacna",
+      "Romeo Ty Quial & Eva L. Quial",
+      "Jessie Alberto Ty Quial & Zenada B. Quial",
+      "Leo Ty Quial & Mary Grace C. Quial",
+      "Alona Q. Carzon & Adelito C. Carzon",
+      "Gilberto Ty Quial & Teresa C. Quial",
+      "Crisanto A. Lim & Ma. Lina Q. Lim",
+      "Minda Nerissa Q. Ladera & Ruben C. Ladera",
     ],
   },
   {
@@ -102,8 +102,8 @@ const entourageGroups = [
   {
     title: "Flower Girls and Bearers",
     members: [
+      "Pia Aliah Milbren T. Ang — Flower Girl",
       "Liana Glynnis A. Rodriguez — Flower Girl",
-      "Pia Aliah T. Ang — Flower Girl",
       "Julianna Margaret T. Makinano — Flower Girl",
       "Jayden James M. Amo — Bible Bearer",
       "Elijah Zeke E. Rosales — Coin Bearer",
