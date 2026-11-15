@@ -53,7 +53,7 @@ const entourageGroups = [
     "Kim Andrea Ty Lee Tan Be",
     "Kaye Vicenta Felize T. Ang",
     "Miyben Antonette Q. Ladera",
-    "Danella Evette B. Cheng",
+    "Danella Eveth B. Cheng",
     "Genes R. Paciencia",
     "Elbert Q. Rodriguez, Jr."
     ],
