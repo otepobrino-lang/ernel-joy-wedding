@@ -85,11 +85,10 @@ const entourageGroups = [
       "Tomas Rosales & Amor Rosales",
       "Alona Q. Carzon & Adelito C. Carzon",
       "Atty. Fidel Amacna & Fe Ann I. Amacna",
-      "Dir. Max Aljibe & Ma. Fe Abunda",
+      "Dir. Maximo C. Aljibe & Ma. Fe R. Abunda",
       "Prov. Pros. Sixto Estudillo & Aida Bula Henshall",
-      "Hon. Jose Ivan Dayan C. Agda & Rowena Agda",
-      "Hon. Odelon Mabutin & Sally Rosales Tiu",
-      "Prov. Pros. Sixto Estudillo & Aida Bula Henshall"
+      "Hon. Jose Ivan Dayan C. Agda & Dra. Rowena Agda",
+      "Hon. Odelon Mabutin & Sally Rosales Tiu"
     ],
   },
   {
@@ -480,29 +479,48 @@ function App() {
       <div className="hero-frame" aria-hidden="true"><span className="frame-inner" /></div>
       <div className="hero-content">
         <p className="hero-eyebrow">Together with our families</p>
-        <div className="monogram-stage">
-          <h1 className="visually-hidden">Ernel and Joy — Wedding Invitation</h1>
-          <div className="name name-ernel" aria-label="ERNEL">ERNEL</div>
-          <div className="monogram-wrap">
+        <div
+          className="monogram-stage"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "minmax(0, 1fr) auto minmax(0, 1fr)",
+            alignItems: "center",
+            justifyItems: "center",
+            width: "100%",
+            maxWidth: "900px",
+            marginInline: "auto",
+            position: "relative",
+            gap: "clamp(12px, 3vw, 42px)",
+          }}
+        >
+          <h1 className="visually-hidden" style={{ position: "absolute" }}>Ernel and Joy — Wedding Invitation</h1>
+          <div
+            className="name name-ernel"
+            aria-label="ERNEL"
+            style={{ position: "static", transform: "none", justifySelf: "end", textAlign: "right" }}
+          >ERNEL</div>
+          <div className="monogram-wrap" style={{ position: "static", transform: "none", gridColumn: "2", gridRow: "1" }}>
             <img className="monogram-image" src="/media/ej-monogram.png" alt="E and J intertwined wedding monogram" fetchPriority="high" />
           </div>
-          <div className="name name-joy" aria-label="JOY">JOY</div>
-        </div>
-        <div className="hero-parents" aria-label="Parents of the couple">
-          <div className="hero-parent-group">
-            <p className="hero-parent-heading">Joy's Parents</p>
-            <p>Eduardo S. Ang, Sr.</p>
-            <p>Mialgros Q. Ang</p>
-          </div>
-          <div className="hero-parent-group">
-            <p className="hero-parent-heading">Ernel's Parents</p>
-            <p>Efren Willy Lu Cheng</p>
-            <p>Evita R. Cheng</p>
-          </div>
+          <div
+            className="name name-joy"
+            aria-label="JOY"
+            style={{ position: "static", transform: "none", justifySelf: "start", textAlign: "left" }}
+          >JOY</div>
         </div>
         <div className={`hero-details ${showInvitation ? "details-visible" : ""}`}>
-          <div className="gold-divider" aria-hidden="true"><span /><Heart size={15} strokeWidth={1.3} /><span /></div>
           <p className="invitation-title">Surrounded by love and with the blessing of our parents, we invite you to celebrate the beginning of our forever.</p>
+          <div className="gold-divider" aria-hidden="true"><span /><Heart size={15} strokeWidth={1.3} /><span /></div>
+          <div className="hero-parents" aria-label="Parents of the couple">
+            <div className="hero-parent-group">
+              <p>Efren Willy Lu Cheng ✝</p>
+              <p>Evita R. Cheng</p>
+            </div>
+            <div className="hero-parent-group">
+              <p>Eduardo S. Ang, Sr.</p>
+              <p>Mialgros Q. Ang</p>
+            </div>
+          </div>
           <button className="explore-button" onClick={(event) => { event.stopPropagation(); handleEnter(); }} type="button">
             <span>Discover our wedding</span><ArrowDown size={15} strokeWidth={1.5} />
           </button>
@@ -585,9 +603,9 @@ function App() {
           </div>
         </article>
         <article className="venue-card">
-          <div className="venue-image-wrap"><img className="venue-image" src="/media/accommodation.png" alt="Travel and accommodation building in Borongan" loading="lazy" /><span className="venue-image-label">Travel &amp; Accommodation</span></div>
+          <div className="venue-image-wrap"><img className="venue-image" src="/media/accommodation.png" alt="Travel and accommodation building in Borongan" loading="lazy" /><span className="venue-image-label">Prim &amp; Hotel</span></div>
           <div className="venue-content">
-            <p className="venue-kicker">Travel &amp; Accommodation</p><h3>Travel &amp; Accommodation</h3>
+            <p className="venue-kicker">Travel &amp; Accommodation</p><h3>Book your Accommodation</h3>
             <p className="venue-location"><MapPin size={15} /> G. Abogado St., Borongan, Eastern Samar, Philippines, 6800</p>
             <div className="venue-meta"><span><CalendarDays size={16} /> December 19, 2026</span><span><MapPin size={16} /> Borongan, Eastern Samar</span></div>
             <div className="venue-qr"><QRCodeSVG value={accommodationMapUrl} size={112} bgColor="#fff9ef" fgColor="#4a0018" level="H" /><p>Scan to find accommodation</p></div>
