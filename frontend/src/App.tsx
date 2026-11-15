@@ -518,7 +518,7 @@ function App() {
             </div>
             <div className="hero-parent-group">
               <p>Eduardo S. Ang, Sr.</p>
-              <p>Mialgros Q. Ang</p>
+              <p>Milagros Q. Ang</p>
             </div>
           </div>
           <button className="explore-button" onClick={(event) => { event.stopPropagation(); handleEnter(); }} type="button">
