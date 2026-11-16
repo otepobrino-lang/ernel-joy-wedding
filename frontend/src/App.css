@@ -3048,3 +3048,102 @@ body { background: #fffaf1; }
     line-height: 1.24;
   }
 }
+
+
+/* Wedding gift contribution section — shares the RSVP satin video background. */
+.rsvp-page-section {
+  min-height: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+  padding-top: clamp(3rem, 7vw, 5.5rem);
+  padding-bottom: clamp(3rem, 7vw, 5.5rem);
+}
+.rsvp-page-section .rsvp-card,
+.rsvp-page-section .gift-card {
+  flex: 0 0 auto;
+}
+.rsvp-page-section .gift-card {
+  position: relative;
+  z-index: 1;
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  box-sizing: border-box;
+  border: 1px solid rgba(215, 180, 111, 0.82);
+  border-radius: 4px;
+  background: rgba(53, 0, 16, 0.72);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
+.gift-card-heading {
+  max-width: 680px;
+  margin: 0 auto 1.6rem;
+}
+.gift-title {
+  margin: 0.35rem 0 0.75rem;
+  color: var(--wedding-ivory, #fff5e9);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 500;
+}
+.gift-description,
+.gift-instruction,
+.gift-thank-you {
+  color: rgba(255, 245, 233, 0.9);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  line-height: 1.75;
+}
+.gift-description { margin: 0 auto 0.55rem; }
+.gift-instruction { margin: 0; color: var(--wedding-gold, #d7b46f); }
+.gift-qr-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(1rem, 3vw, 2rem);
+  width: min(100%, 680px);
+  margin: 0 auto;
+}
+.gift-qr-item {
+  min-width: 0;
+  margin: 0;
+  padding: clamp(0.65rem, 2vw, 1rem);
+  border: 1px solid rgba(215, 180, 111, 0.5);
+  border-radius: 3px;
+  background: #fffaf1;
+  box-sizing: border-box;
+}
+.gift-qr-item figcaption {
+  margin: 0 0 0.65rem;
+  color: #4b071b;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.gift-qr-item img {
+  display: block;
+  width: 100%;
+  max-width: 310px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+.gift-thank-you {
+  max-width: 680px;
+  margin: 1.5rem auto 0;
+  color: var(--wedding-gold, #d7b46f);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-style: italic;
+}
+@media (max-width: 600px) {
+  .rsvp-page-section { gap: 1.35rem; }
+  .rsvp-page-section .rsvp-card,
+  .rsvp-page-section .gift-card { width: 100%; }
+  .gift-qr-grid { grid-template-columns: minmax(0, 1fr); width: min(100%, 360px); }
+  .gift-qr-item img { max-width: 290px; }
+  .gift-card-heading { margin-bottom: 1.2rem; }
+  .gift-thank-you { margin-top: 1.2rem; }
+}

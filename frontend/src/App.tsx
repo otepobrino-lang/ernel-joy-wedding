@@ -37,7 +37,7 @@ const entourageGroups = [
     title: "Best Man and Men of Honor",
     members: [
       "Teofil Y. Rediang, CPA — Best Man",
-      "Julius D. Makinano — Man of Honor",
+      "Julius D. Makinano, CPA — Man of Honor",
       "Erich R. Cheng — Man of Honor",
     ],
   },
@@ -70,7 +70,7 @@ const entourageGroups = [
       "Lance Sebastian Cheng",
       "Jared Matthew T. Makinano",
       "Derick C. Quial",
-      "Dean Earnest B. Cheng"
+      "Dean Ernest B. Cheng"
     ],
   },
   {
@@ -94,7 +94,7 @@ const entourageGroups = [
   {
     title: "Secondary Sponsors",
     members: [
-      "Pros. Eduardo Ang Jr., CPA & Karen Tiu Songo-Ang — Candle",
+      "Pros. Eduardo Ang Jr., CPA & Karen Tiu Sonco-Ang — Candle",
       "	Tee Jay R. Tan & Evangeline Rose C. Tan— Veil",
       "Imelda Cristina C. Monsanto & German R. Monsanto III - Cord",
     ],
@@ -519,6 +519,8 @@ function App() {
             <div className="hero-parent-group">
               <p>Eduardo S. Ang, Sr.</p>
               <p>Milagros Q. Ang</p>
+              <p>Emerita Q. Tabanao ✝</p>
+              <p>Romeo P. Galoy, Sr. ✝</p>
             </div>
           </div>
           <button className="explore-button" onClick={(event) => { event.stopPropagation(); handleEnter(); }} type="button">
@@ -649,6 +651,29 @@ function App() {
             </form>
           </>
         )}
+      </div>
+      <div className="gift-card" aria-labelledby="gift-title">
+        <div className="gift-card-heading">
+          <p className="section-eyebrow">A token of love</p>
+          <h3 className="gift-title" id="gift-title">A Gift from the Heart</h3>
+          <p className="gift-description">
+            Your presence at our wedding is the greatest gift of all, but if you wish to bless us with a monetary contribution, you may scan the QR code below.
+          </p>
+          <p className="gift-instruction">GCash / Bank Transfer: Scan the code to send your gift securely.</p>
+        </div>
+        <div className="gift-qr-grid">
+          <figure className="gift-qr-item">
+            <figcaption>GCash</figcaption>
+            <img src="/media/gcash-qr.jpg" alt="GCash InstaPay QR code for wedding gifts" loading="lazy" />
+          </figure>
+          <figure className="gift-qr-item">
+            <figcaption>GoTyme Bank</figcaption>
+            <img src="/media/gotyme-qr.jpg" alt="GoTyme Bank InstaPay QR code for wedding gifts" loading="lazy" />
+          </figure>
+        </div>
+        <p className="gift-thank-you">
+          We are deeply grateful for your love, support, and generosity as we begin this new chapter together.
+        </p>
       </div>
     </section>
   );
